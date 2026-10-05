@@ -149,20 +149,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const timer = setInterval(tick, 1000);
     tick();
 
-    // --- DESTELLOS DORADOS ---
-    const dust = document.getElementById("magic-dust");
-    if (dust && !reduceMotion) {
-        const count = window.innerWidth < 768 ? 22 : 34;
+    // --- LINTERNAS FLOTANTES ---
+    const sky = document.getElementById("lanterns");
+    if (sky && !reduceMotion) {
+        const count = window.innerWidth < 768 ? 16 : 26;
         for (let i = 0; i < count; i++) {
-            const p = document.createElement("span");
-            p.className = Math.random() > 0.3 ? "dust-particle" : "dust-particle star";
-            const size = Math.random() * 5 + 3;
-            p.style.width = `${size}px`;
-            p.style.height = `${size}px`;
-            p.style.left = `${Math.random() * 100}%`;
-            p.style.animationDuration = `${Math.random() * 14 + 14}s`;
-            p.style.animationDelay = `${-Math.random() * 20}s`;
-            dust.appendChild(p);
+            const lantern = document.createElement("span");
+            const depth = Math.random();                 // 0 = lejos, 1 = cerca
+            lantern.className = depth < 0.4 ? "lantern far" : "lantern";
+            lantern.style.left = `${Math.random() * 96}%`;
+            lantern.style.setProperty("--size", `${(10 + depth * 18).toFixed(1)}px`);
+            lantern.style.setProperty("--alpha", (0.45 + depth * 0.5).toFixed(2));
+            lantern.style.setProperty("--dur", `${(34 - depth * 14).toFixed(1)}s`);
+            lantern.style.setProperty("--delay", `${(-Math.random() * 34).toFixed(1)}s`);
+            lantern.style.setProperty("--sway", `${(Math.random() * 24 + 6).toFixed(0)}px`);
+            sky.appendChild(lantern);
         }
     }
 });
