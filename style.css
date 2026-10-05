@@ -743,6 +743,8 @@ a { color: inherit; }
 
 .alias:active { transform: scale(0.98); }
 
+.alias + .alias { margin-top: 10px; }
+
 .alias-text {
     font-size: 1.1rem;
     font-weight: 700;

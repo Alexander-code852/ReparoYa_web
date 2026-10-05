@@ -89,30 +89,35 @@ document.addEventListener("DOMContentLoaded", () => {
         toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 2200);
     };
 
-    const copyBtn = document.getElementById("copy-alias");
-    copyBtn.addEventListener("click", async () => {
-        const alias = copyBtn.dataset.alias;
-        try {
-            await navigator.clipboard.writeText(alias);
-        } catch {
-            // Alternativa para navegadores sin acceso al portapapeles
-            const temp = document.createElement("textarea");
-            temp.value = alias;
-            temp.setAttribute("readonly", "");
-            temp.style.position = "absolute";
-            temp.style.left = "-9999px";
-            document.body.appendChild(temp);
-            temp.select();
-            document.execCommand("copy");
-            temp.remove();
-        }
-        copyBtn.classList.add("is-copied");
-        copyBtn.querySelector(".alias-action").innerHTML = '<i class="fa-solid fa-check"></i> Copiado';
-        showToast("Alias copiado ✨");
-        setTimeout(() => {
-            copyBtn.classList.remove("is-copied");
-            copyBtn.querySelector(".alias-action").innerHTML = '<i class="fa-regular fa-copy"></i> Copiar';
-        }, 2500);
+    document.querySelectorAll(".alias").forEach((copyBtn) => {
+        const action = copyBtn.querySelector(".alias-action");
+        let resetTimer;
+
+        copyBtn.addEventListener("click", async () => {
+            const alias = copyBtn.dataset.alias;
+            try {
+                await navigator.clipboard.writeText(alias);
+            } catch {
+                // Alternativa para navegadores sin acceso al portapapeles
+                const temp = document.createElement("textarea");
+                temp.value = alias;
+                temp.setAttribute("readonly", "");
+                temp.style.position = "absolute";
+                temp.style.left = "-9999px";
+                document.body.appendChild(temp);
+                temp.select();
+                document.execCommand("copy");
+                temp.remove();
+            }
+            copyBtn.classList.add("is-copied");
+            action.innerHTML = '<i class="fa-solid fa-check"></i> Copiado';
+            showToast(`Alias "${alias}" copiado ✨`);
+            clearTimeout(resetTimer);
+            resetTimer = setTimeout(() => {
+                copyBtn.classList.remove("is-copied");
+                action.innerHTML = '<i class="fa-regular fa-copy"></i> Copiar';
+            }, 2500);
+        });
     });
 
     // --- CUENTA REGRESIVA (hora de Argentina) ---
