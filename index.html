@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#2a1b33">
+    <title>Mis XV Años · Ara</title>
+    <meta name="description" content="Estás invitado/a a celebrar mis XV años. Sábado 31 de octubre de 2026, 21:15 h — Salón de Eventos Gauna.">
+
+    <!-- Vista previa al compartir por WhatsApp -->
+    <meta property="og:title" content="Mis XV Años · Ara">
+    <meta property="og:description" content="Sábado 31 de octubre · 21:15 h · Salón de Eventos Gauna">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="is-locked">
+
+    <!-- Ilustraciones reutilizables -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <!-- Ramita floral de línea fina -->
+            <symbol id="sprig" viewBox="0 0 120 120">
+                <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+                    <path d="M6 116 C 22 92, 34 66, 58 46 S 96 18, 108 10" />
+                    <path d="M30 80 C 22 70, 14 66, 6 66" />
+                    <path d="M62 43 C 64 32, 62 22, 56 12" />
+                </g>
+                <g fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="1">
+                    <path d="M18 98 c 4 -9 13 -13 20 -11 c -3 8 -12 13 -20 11 z" />
+                    <path d="M24 88 c -9 -3 -14 -11 -13 -18 c 8 2 14 10 13 18 z" />
+                    <path d="M40 66 c 5 -8 14 -11 21 -8 c -4 8 -13 11 -21 8 z" />
+                    <path d="M46 56 c -7 -6 -9 -15 -6 -21 c 7 4 9 13 6 21 z" />
+                    <path d="M72 36 c 6 -7 15 -8 21 -4 c -5 6 -14 8 -21 4 z" />
+                    <path d="M84 26 c -4 -8 -3 -16 2 -21 c 4 7 3 16 -2 21 z" />
+                </g>
+                <g fill="currentColor" fill-opacity="0.18" stroke="currentColor" stroke-width="1">
+                    <ellipse cx="108" cy="4" rx="4" ry="7" />
+                    <ellipse cx="108" cy="16" rx="4" ry="7" />
+                    <ellipse cx="102" cy="10" rx="7" ry="4" />
+                    <ellipse cx="114" cy="10" rx="7" ry="4" />
+                </g>
+                <circle cx="108" cy="10" r="2.6" fill="currentColor" />
+                <circle cx="6" cy="66" r="2" fill="currentColor" />
+                <circle cx="56" cy="12" r="2" fill="currentColor" />
+            </symbol>
+
+            <!-- Destello de 4 puntas -->
+            <symbol id="sparkle" viewBox="-10 -10 20 20">
+                <path fill="currentColor" d="M0 -10 C 1 -2 2 -1 10 0 C 2 1 1 2 0 10 C -1 2 -2 1 -10 0 C -2 -1 -1 -2 0 -10 Z" />
+            </symbol>
+
+            <linearGradient id="gold-grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#a97d2b" />
+                <stop offset="0.45" stop-color="#f3dfa0" />
+                <stop offset="1" stop-color="#9c7429" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- ===================== SOBRE DE APERTURA ===================== -->
+    <div id="envelope" class="envelope" role="dialog" aria-label="Abrir invitación">
+        <div class="envelope-inner">
+            <p class="envelope-kicker">Tenés una invitación especial</p>
+
+            <div class="env">
+                <div class="env-back"></div>
+                <div class="env-letter">
+                    <span class="env-letter-kicker">Mis XV años</span>
+                    <span class="env-letter-name">Ara</span>
+                </div>
+                <div class="env-pocket"></div>
+                <div class="env-flap"></div>
+                <button id="open-btn" class="seal" aria-label="Abrir invitación">
+                    <span class="seal-letter">A</span>
+                </button>
+            </div>
+
+            <p class="envelope-hint">Tocá el sello para abrir</p>
+        </div>
+    </div>
+
+    <!-- Destellos dorados de fondo -->
+    <div id="magic-dust" aria-hidden="true"></div>
+
+    <!-- Botón de música -->
+    <button id="music-btn" class="fab-music" aria-label="Reproducir música" aria-pressed="false">
+        <i class="fa-solid fa-music"></i>
+        <span class="eq" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <audio id="bg-music" loop preload="none">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3" type="audio/mpeg">
+    </audio>
+
+    <main class="app">
+
+        <!-- ===================== PORTADA ===================== -->
+        <section class="hero" id="inicio">
+            <div class="hero-glow" aria-hidden="true"></div>
+
+            <div class="arch">
+                <svg class="sprig sprig-arch-l" aria-hidden="true"><use href="#sprig" /></svg>
+                <svg class="sprig sprig-arch-r" aria-hidden="true"><use href="#sprig" /></svg>
+
+                <span class="butterfly butterfly-1" aria-hidden="true">
+                    <svg viewBox="-20 -16 40 32">
+                        <g class="wing wing-l">
+                            <path d="M-1 -1 C -5 -14 -19 -16 -17 -5 C -16 1 -8 2 -1 0 Z" />
+                            <path d="M-1 1 C -8 3 -14 8 -11 13 C -8 16 -3 10 -1 3 Z" />
+                        </g>
+                        <g class="wing wing-r">
+                            <path d="M1 -1 C 5 -14 19 -16 17 -5 C 16 1 8 2 1 0 Z" />
+                            <path d="M1 1 C 8 3 14 8 11 13 C 8 16 3 10 1 3 Z" />
+                        </g>
+                        <ellipse class="bf-body" cx="0" cy="1" rx="1.1" ry="7" />
+                        <path class="bf-antenna" d="M0 -5 C -1 -10 -3 -12 -5 -13 M0 -5 C 1 -10 3 -12 5 -13" />
+                    </svg>
+                </span>
+                <span class="butterfly butterfly-2" aria-hidden="true">
+                    <svg viewBox="-20 -16 40 32">
+                        <g class="wing wing-l">
+                            <path d="M-1 -1 C -5 -14 -19 -16 -17 -5 C -16 1 -8 2 -1 0 Z" />
+                            <path d="M-1 1 C -8 3 -14 8 -11 13 C -8 16 -3 10 -1 3 Z" />
+                        </g>
+                        <g class="wing wing-r">
+                            <path d="M1 -1 C 5 -14 19 -16 17 -5 C 16 1 8 2 1 0 Z" />
+                            <path d="M1 1 C 8 3 14 8 11 13 C 8 16 3 10 1 3 Z" />
+                        </g>
+                        <ellipse class="bf-body" cx="0" cy="1" rx="1.1" ry="7" />
+                        <path class="bf-antenna" d="M0 -5 C -1 -10 -3 -12 -5 -13 M0 -5 C 1 -10 3 -12 5 -13" />
+                    </svg>
+                </span>
+                <span class="butterfly butterfly-3" aria-hidden="true">
+                    <svg viewBox="-20 -16 40 32">
+                        <g class="wing wing-l">
+                            <path d="M-1 -1 C -5 -14 -19 -16 -17 -5 C -16 1 -8 2 -1 0 Z" />
+                            <path d="M-1 1 C -8 3 -14 8 -11 13 C -8 16 -3 10 -1 3 Z" />
+                        </g>
+                        <g class="wing wing-r">
+                            <path d="M1 -1 C 5 -14 19 -16 17 -5 C 16 1 8 2 1 0 Z" />
+                            <path d="M1 1 C 8 3 14 8 11 13 C 8 16 3 10 1 3 Z" />
+                        </g>
+                        <ellipse class="bf-body" cx="0" cy="1" rx="1.1" ry="7" />
+                        <path class="bf-antenna" d="M0 -5 C -1 -10 -3 -12 -5 -13 M0 -5 C 1 -10 3 -12 5 -13" />
+                    </svg>
+                </span>
+                <svg class="ornament ornament-top" viewBox="0 0 200 40" aria-hidden="true">
+                    <path d="M10 20 H80 M120 20 H190" />
+                    <path d="M100 6 L110 20 L100 34 L90 20 Z" />
+                    <circle cx="80" cy="20" r="2.5" /><circle cx="120" cy="20" r="2.5" />
+                </svg>
+
+                <span class="eyebrow">Mis XV años</span>
+                <div class="name-wrap">
+                    <span class="watermark" aria-hidden="true">XV</span>
+                    <h1 class="name gold-text">Ara</h1>
+                    <svg class="sparkle sparkle-1" aria-hidden="true"><use href="#sparkle" /></svg>
+                    <svg class="sparkle sparkle-2" aria-hidden="true"><use href="#sparkle" /></svg>
+                    <svg class="sparkle sparkle-3" aria-hidden="true"><use href="#sparkle" /></svg>
+                </div>
+
+                <div class="date-row">
+                    <span class="date-side">Sábado</span>
+                    <span class="date-day">
+                        <small>Octubre</small>
+                        <strong>31</strong>
+                        <small>2026</small>
+                    </span>
+                    <span class="date-side">21:15 h</span>
+                </div>
+
+                <svg class="ornament ornament-bottom" viewBox="0 0 200 40" aria-hidden="true">
+                    <path d="M10 20 H80 M120 20 H190" />
+                    <path d="M100 6 L110 20 L100 34 L90 20 Z" />
+                    <circle cx="80" cy="20" r="2.5" /><circle cx="120" cy="20" r="2.5" />
+                </svg>
+            </div>
+
+            <a href="#mensaje" class="scroll-cue" aria-label="Ver más">
+                <span>Deslizá</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- ===================== MENSAJE ===================== -->
+        <section class="section" id="mensaje">
+            <div class="quote reveal">
+                <i class="fa-solid fa-quote-left quote-mark" aria-hidden="true"></i>
+                <p>Hay momentos que se esperan toda la vida y que merecen compartirse con las personas que más quiero.</p>
+                <p class="quote-strong">Me encantaría que seas parte de mi noche soñada.</p>
+            </div>
+        </section>
+
+        <!-- ===================== CUENTA REGRESIVA ===================== -->
+        <section class="section">
+            <header class="section-head reveal">
+                <span class="kicker">Cuenta regresiva</span>
+                <h2 class="section-title">Faltan</h2>
+            </header>
+
+            <div class="countdown reveal" id="countdown">
+                <div class="cd-box"><span id="days" class="cd-num">00</span><span class="cd-label">Días</span></div>
+                <div class="cd-box"><span id="hours" class="cd-num">00</span><span class="cd-label">Horas</span></div>
+                <div class="cd-box"><span id="minutes" class="cd-num">00</span><span class="cd-label">Min</span></div>
+                <div class="cd-box"><span id="seconds" class="cd-num">00</span><span class="cd-label">Seg</span></div>
+            </div>
+        </section>
+
+        <!-- ===================== FIESTA ===================== -->
+        <section class="section">
+            <header class="section-head reveal">
+                <span class="kicker">Dónde &amp; cuándo</span>
+                <h2 class="section-title">La Fiesta</h2>
+            </header>
+
+            <article class="card event-card reveal">
+                <svg class="sprig sprig-card-tl" aria-hidden="true"><use href="#sprig" /></svg>
+                <svg class="sprig sprig-card-tr" aria-hidden="true"><use href="#sprig" /></svg>
+                <div class="icon-badge"><i class="fa-solid fa-champagne-glasses"></i></div>
+
+                <h3 class="card-title">Salón de Eventos Gauna</h3>
+
+                <ul class="event-meta">
+                    <li><i class="fa-regular fa-calendar"></i> Sábado 31 de octubre</li>
+                    <li><i class="fa-regular fa-clock"></i> 21:15 h · Recepción</li>
+                </ul>
+
+                <div class="btn-row">
+                    <a href="https://maps.app.goo.gl/T2WQQVVJBcAVXuB56" target="_blank" rel="noopener" class="btn btn-gold">
+                        <i class="fa-solid fa-location-dot"></i> Cómo llegar
+                    </a>
+                    <a id="calendar-btn" target="_blank" rel="noopener" class="btn btn-ghost"
+                       href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV%20de%20Ara&dates=20261101T001500Z/20261101T060000Z&details=%C2%A1Te%20espero%20para%20celebrar%20mis%20XV!&location=Sal%C3%B3n%20de%20Eventos%20Gauna">
+                        <i class="fa-regular fa-calendar-plus"></i> Agendar
+                    </a>
+                </div>
+            </article>
+        </section>
+
+        <!-- ===================== DRESS CODE ===================== -->
+        <section class="section">
+            <header class="section-head reveal">
+                <span class="kicker">Código de vestimenta</span>
+                <h2 class="section-title">Dress Code</h2>
+            </header>
+
+            <article class="card dress-card reveal">
+                <svg class="sprig sprig-card-tl" aria-hidden="true"><use href="#sprig" /></svg>
+                <svg class="sprig sprig-card-tr" aria-hidden="true"><use href="#sprig" /></svg>
+                <div class="swatches" aria-hidden="true">
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                </div>
+                <h3 class="dress-main">Total Black</h3>
+                <p class="dress-sub">Elegante Sport</p>
+            </article>
+        </section>
+
+        <!-- ===================== REGALOS ===================== -->
+        <section class="section">
+            <header class="section-head reveal">
+                <span class="kicker">Regalos</span>
+                <h2 class="section-title">Un detalle</h2>
+            </header>
+
+            <article class="card gift-card reveal">
+                <svg class="sprig sprig-card-tl" aria-hidden="true"><use href="#sprig" /></svg>
+                <svg class="sprig sprig-card-tr" aria-hidden="true"><use href="#sprig" /></svg>
+                <div class="icon-badge"><i class="fa-solid fa-gift"></i></div>
+                <p>Tu presencia es mi mejor regalo. Si además querés hacerme un obsequio, podés transferir a este alias:</p>
+
+                <button class="alias" id="copy-alias" data-alias="ara.mis15" aria-label="Copiar alias ara.mis15">
+                    <span class="alias-text">ara.mis15</span>
+                    <span class="alias-action"><i class="fa-regular fa-copy"></i> Copiar</span>
+                </button>
+            </article>
+        </section>
+
+        <!-- ===================== CONFIRMACIÓN ===================== -->
+        <section class="section rsvp" id="confirmar">
+            <div class="card rsvp-card reveal">
+                <svg class="sprig sprig-card-tl" aria-hidden="true"><use href="#sprig" /></svg>
+                <svg class="sprig sprig-card-tr" aria-hidden="true"><use href="#sprig" /></svg>
+                <span class="kicker">RSVP</span>
+                <h2 class="section-title">¿Venís?</h2>
+                <p>Por favor confirmá tu asistencia para que pueda organizar todo con mucho amor.</p>
+                <a href="https://wa.me/5493625173853?text=%C2%A1Hola%20Ara!%20Confirmo%20mi%20asistencia%20a%20tus%20XV%20%E2%9C%A8" target="_blank" rel="noopener" class="btn btn-gold btn-lg">
+                    <i class="fa-brands fa-whatsapp"></i> Confirmar asistencia
+                </a>
+            </div>
+        </section>
+
+        <!-- ===================== DESPEDIDA ===================== -->
+        <footer class="footer reveal">
+            <div class="footer-seal" aria-hidden="true"><span>A</span></div>
+            <p class="farewell">¡Te espero!</p>
+            <p class="signature">Con cariño, <span class="gold-text">Ara</span></p>
+        </footer>
+
+    </main>
+
+    <!-- Barra flotante de confirmación (aparece al pasar la portada) -->
+    <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+        <a href="https://wa.me/5493625173853?text=%C2%A1Hola%20Ara!%20Confirmo%20mi%20asistencia%20a%20tus%20XV%20%E2%9C%A8" target="_blank" rel="noopener" class="btn btn-gold btn-lg" tabindex="-1">
+            <i class="fa-brands fa-whatsapp"></i> Confirmar asistencia
+        </a>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
